@@ -1,0 +1,46 @@
+contacts = {}
+
+
+def add_contact():
+    name = input("Enter a name: ")
+    number = input("Enter a number: ")
+    contacts[name] = number
+    print("Contact added successfully.")
+
+
+def search_contact():
+    name = input("Enter a name: ")
+    if name in contacts:
+        print("Number:", contacts[name])
+    else:
+        print("Contact is not found.")
+
+
+def display_contacts():
+    if not contacts:
+        print("Contact book is empty.")
+    else:
+        print("Contacts:")
+        for name, number in contacts.items():
+            print(name + ":", number)
+
+
+while True:
+    print("\nMenu:")
+    print("1. Add contact")
+    print("2. Search for contact")
+    print("3. Display the contacts")
+    print("4. Quit")
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == "1":
+        add_contact()
+    elif choice == "2":
+        search_contact()
+    elif choice == "3":
+        display_contacts()
+    elif choice == "4":
+        quit()
+        break
+    else:
+        print("Invalid choice. Please, try again.")
